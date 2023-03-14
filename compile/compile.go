@@ -492,6 +492,13 @@ func (c *Compiler) optimize(ctx context.Context) error {
 	return nil
 }
 
+func (c *Compiler) CompilePlan(ctx context.Context) (*ir.Policy, error) {
+	if err := c.compilePlan(ctx); err != nil {
+		return nil, err
+	}
+	return c.policy, nil
+}
+
 func (c *Compiler) compilePlan(context.Context) error {
 
 	// Lazily compile the modules if needed. If optimizations were run, the

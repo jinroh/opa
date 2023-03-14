@@ -79,9 +79,10 @@ func Minimal(x interface{}) (resolved []ast.Ref, err error) {
 		return nil, nil
 	}
 
-	return filter(rawResolved, func(a, b ast.Ref) bool {
-		return b.HasPrefix(a)
-	}), nil
+	return rawResolved, nil
+	// return filter(rawResolved, func(a, b ast.Ref) bool {
+	// 	return b.HasPrefix(a)
+	// }), nil
 }
 
 // Base returns the list of base data documents that the given AST element depends on.
